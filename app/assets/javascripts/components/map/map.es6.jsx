@@ -1146,6 +1146,7 @@ export default class Map extends React.Component {
                     classifications={this.classifications}
                     showInfraStats={this.state.showInfraStats}
                     showCarStats={this.state.showCarStats}
+                    viewOptionsIndex={this.state.viewOptionsIndex}
                     onExpandModal={this.expandModal.bind(this, 'coverage')}
                   />
                 )}
