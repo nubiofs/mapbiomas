@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import _ from 'lodash';
 import className from 'classnames';
 import Toggle from 'react-toggle';
 
@@ -7,8 +8,29 @@ export default class Collapsible extends Component {
     super(props);
 
     this.state = {
-      open: false
+      open: this.open
     };
+  }
+
+  get infraLevelsIds() {
+    return _.map(this.props.infraLevels, 'id');
+  }
+
+  contentIds(content = this.props.content, result = []) {
+    _.each(content, (c) => {
+      result = [...result, c.id];
+
+      if (!_.isEmpty(c.sub)) {
+        result = this.contentIds(c.sub, result);
+      }
+    });
+
+    return result;
+  }
+
+  get open() {
+    return _.includes(this.infraLevelsIds, this.props.category.id) ||
+      _.some(this.contentIds(), (i) => _.includes(this.infraLevelsIds, i));
   }
 
   handleClick() {
@@ -18,6 +40,7 @@ export default class Collapsible extends Component {
   }
 
   handleCheck(e) {
+    this.handleClick();
     this.props.onChange(e, this.props.category);
   }
 
