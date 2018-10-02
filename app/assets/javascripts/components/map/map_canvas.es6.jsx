@@ -260,7 +260,7 @@ export class MapCanvas extends React.Component {
       options.year = this.props.year;
     }
 
-    if (this.props.mode == 'coverage' && this.props.selectedInfraBuffer != 'none' && !_.isEmpty(this.props.selectedInfraLevels)) {
+    if (this.props.mode == 'coverage' && this.props.selectedInfraBuffer.value != 'none' && !_.isEmpty(this.props.selectedInfraLevels)) {
       options = {
         ...options,
         territory_id: _.map(this.territoryArray, (t) => t.value),
@@ -301,7 +301,7 @@ export class MapCanvas extends React.Component {
 
         return `category_${key} IN (${categories})`
       });
-      let bufferFilter = this.props.selectedInfraBuffer == 'none' ? 'buffer IS NULL' :`buffer IN ('${this.props.selectedInfraBuffer}')`;
+      let bufferFilter = this.props.selectedInfraBuffer.value == 'none' ? 'buffer IS NULL' :`buffer IN ('${this.props.selectedInfraBuffer.value}')`;
       let cqlFilter;
 
       layerFilter = lodash.join(layerFilter, ' OR ');
