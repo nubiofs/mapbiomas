@@ -4,8 +4,10 @@
       return 'http://seeg-mapbiomas.terras.agr.br/dashboard/downloads/collection/CONSOLIDACAO/'+ biome + '/' + year ;
     } else if (collection == '2') {
       return 'http://storage.googleapis.com/mapbiomas-public/COLECAO/2/CONSOLIDACAO/' + year + '/' + biome + '_' + year + '.tif';
-    } else {
+    } else if (collection == '2') {
       return 'http://storage.googleapis.com/mapbiomas-public/COLECAO/2_3/CONSOLIDACAO/' + biome + '.tif';
+    } else {
+      return 'http://storage.googleapis.com/mapbiomas-public/COLECAO/3/CONSOLIDACAO/' + biome + '.tif';
     }
   }
 
@@ -72,7 +74,7 @@
     <h1 class="page__title">Coleções MAPBIOMAS</h1>
 
     <div class="page__box-download">
-      <%= select_tag "collection", options_for_select([["Collection 2.3 (2000-2016)", 3], ["Collection 2 (2000-2016)", 2], ["Collection 1 (2008-2015)", 1]]), id: "collection" %>
+      <%= select_tag "collection", options_for_select([['Collection 3 (1985-2017)', 4], ['Collection 2.3 (2000-2016)', 3], ['Collection 2 (2000-2016)', 2], ['Collection 1 (2008-2015)', 1]]), id: "collection" %>
       <%= select_tag "year", options_for_select(Setting.available_years << ['All years', 'all_years']), id: "year" %>
     </div>
 
