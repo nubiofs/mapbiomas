@@ -95,7 +95,7 @@ class QualityPieChart extends React.Component {
             &#xE88E;
           </i>
         </h3>
-        <label className="chart-tooltip">{I18n.t('map.index.chart.tooltip')}</label>
+        <label className="chart-tooltip">{I18n.t('map.index.chart.tooltip.coverage')}</label>
         <label>{I18n.t('map.index.chart.year', {year: this.props.year})}</label>
         <div className="quality-chart" ref="chartElement"></div>
       </div>

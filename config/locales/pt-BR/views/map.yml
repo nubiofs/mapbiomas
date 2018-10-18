@@ -234,10 +234,14 @@ pt-BR:
       search: "Busque municípios, estados, biomas..."
       searching: "Procurando..."
       chart:
-        tooltip: Passe o mouse por cima do gráfico para visualizar os valores obtidos.
+        tooltip:
+          coverage: Passe o mouse por cima do gráfico para visualizar os valores obtidos.
+          infra_coverage: Selecione um tema de infraestrutura e um buffer para visualizar a estatística de cobertura e uso do solo para este tema.
         year: "Ano: %{year}"
         territory: "Território(s): %{territory}"
         map: "Mapa: %{map}"
+        buffer: "Buffer: %{buffer}"
+        category: "Categoria(s): %{category}"
       download:
         title: Baixe os dados
         classification: Classe

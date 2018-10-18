@@ -31,7 +31,7 @@ export default class CoverageMenu extends React.Component {
   renderInfraBufferInfo() {
     if (this.props.viewOptionsIndex == INFRA_MENU_OPTION && this.props.showInfraStats) {
       return (
-        <label>Buffer: { this.props.infraBuffer.label }</label>
+        <label>{ I18n.t('map.index.chart.buffer', { buffer: this.props.infraBuffer.label }) }</label>
       );
     }
 
@@ -46,26 +46,26 @@ export default class CoverageMenu extends React.Component {
         let infraLevels = _.map(this.props.infraLevels, 'name').join(', ');
 
         return (
-          <label>Categoria(s): { infraLevels }</label>
+          <label>{ I18n.t('map.index.chart.category', { category: infraLevels }) }</label>
         );
       }
     }
   }
 
   renderInstructions() {
-    if (this.props.showInfraStats && this.props.viewOptionsIndex == INFRA_MENU_OPTION && (this.props.infraBuffer == 'none' || _.isEmpty(this.props.infraLevels))) {
+    if (this.props.showInfraStats && this.props.viewOptionsIndex == INFRA_MENU_OPTION && (this.props.infraBuffer.value == 'none' || _.isEmpty(this.props.infraLevels))) {
       return (
-        <label className="chart-tooltip">Selecione um buffer e uma ou mais categorias para visualizar a estatística de infraestrutura para a(s) mesma(s).</label>
+        <label className="chart-tooltip">{I18n.t('map.index.chart.tooltip.infra_coverage')}</label>
       );
     }
 
     return (
-      <label className="chart-tooltip">{I18n.t('map.index.chart.tooltip')}</label>
+      <label className="chart-tooltip">{I18n.t('map.index.chart.tooltip.coverage')}</label>
     );
   }
 
   renderPieChart() {
-    if (this.props.showInfraStats && this.props.viewOptionsIndex == INFRA_MENU_OPTION && (this.props.infraBuffer == 'none' || _.isEmpty(this.props.infraLevels))) {
+    if (this.props.showInfraStats && this.props.viewOptionsIndex == INFRA_MENU_OPTION && (this.props.infraBuffer.value == 'none' || _.isEmpty(this.props.infraLevels))) {
       return null;
     }
 
@@ -85,7 +85,7 @@ export default class CoverageMenu extends React.Component {
   }
 
   renderLineChart() {
-    if (this.props.showInfraStats && this.props.viewOptionsIndex == INFRA_MENU_OPTION && (this.props.infraBuffer == 'none' || _.isEmpty(this.props.infraLevels))) {
+    if (this.props.showInfraStats && this.props.viewOptionsIndex == INFRA_MENU_OPTION && (this.props.infraBuffer.value == 'none' || _.isEmpty(this.props.infraLevels))) {
       return null;
     }
 
@@ -106,7 +106,7 @@ export default class CoverageMenu extends React.Component {
   }
 
   renderDetailsButton() {
-    if (this.props.showInfraStats && this.props.viewOptionsIndex == INFRA_MENU_OPTION && (this.props.infraBuffer == 'none' || _.isEmpty(this.props.infraLevels))) {
+    if (this.props.showInfraStats && this.props.viewOptionsIndex == INFRA_MENU_OPTION && (this.props.infraBuffer.value == 'none' || _.isEmpty(this.props.infraLevels))) {
       return null;
     }
 

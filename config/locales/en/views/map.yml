@@ -234,10 +234,14 @@ en:
       search: "Search for cities, states, protected areas..."
       searching: "Searching..."
       chart:
-        tooltip: Move your mouse over the chart to see its values.
+        tooltip:
+          coverage: Move your mouse over the chart to see its values.
+          infra_coverage: Select um theme for infra-estructure and a buffer to visualize the statistics of Land Cover and land use for this theme.
         year: "Year: %{year}"
         territory: "Territory/Territories: %{territory}"
         map: "Map: %{map}"
+        buffer: "Buffer: %{buffer}"
+        category: "Category/Categories: %{category}"
       download:
         title: Download data
         classification: Classification
