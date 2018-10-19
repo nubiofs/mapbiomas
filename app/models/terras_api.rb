@@ -127,6 +127,26 @@ class TerrasAPI
     statistics(territory_id, classification_ids, grouped, COLLECTION_2_STATISTICS_URL)
   end
 
+  def self.infra_statistics(territory_id, level_id, buffer, classification_ids)
+    query_params = {
+      territory_id: territory_id,
+      level_id: level_id,
+      buffer: buffer,
+      classification_ids: classification_ids
+    }
+
+    cache([
+      __method__.to_s,
+      territory_id,
+      level_id,
+      buffer,
+      classification_ids,
+      locale
+    ].join('-')) do
+      get("/dashboard/services/statistics/groupedcover_infra", query: query_params).parsed_response
+    end
+  end
+
   def self.inspector(year, latitude, longitude)
     cache("#{__method__.to_s}-#{year}-#{latitude}-#{longitude}-#{locale}") do
       get("/dashboard/services/statistics/inspector", query: {

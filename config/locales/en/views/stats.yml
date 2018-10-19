@@ -3,6 +3,10 @@ en:
     title: 'Statistics'
     subtitle: Select in the boxes below the territories (country, state, municipality or biome) and the classes for which you want to see the statistics over the period of the MapBiomas collection.
     searching: 'Searching...'
+    type:
+      title: Type
+      coverage: Coverage
+      infra_coverage: Infrastructure coverage
     territories:
       title: 'Territories'
       tooltip: |
@@ -13,6 +17,10 @@ en:
         <p>Type the classes for which you would like to see the graphic and table with historical data. Note that scale is in hectares and vary according to the classes selected.</p>
         <p>The classes are hierarchical. The Nivel 1 includes all data from Nivel 2 and 3. Ex. 1. Forests Formations includes all types of forests.</p>
         <p>When graph is plotted you can turn on/off any class in the graphic by clicking on the legend bellow the graph.</p>
+    buffer:
+      title: Buffer
+    categories:
+      title: Categories
     collections:
       title: Collection
       2: Collection 2.3

@@ -831,14 +831,21 @@ export default class Map extends React.Component {
 
   renderStatsModal() {
     if(this.state.showModals.coverage) {
+      let type = this.state.showInfraStats ? 'infraCoverage' : 'coverage';
+
       return (
         <StatsModal
+          type={type}
           myMapsPage={this.props.myMapsPage}
           classifications={this.props.defaultClassifications}
           years={this.props.availableYears}
           selectedMap={this.state.selectedMap}
           selectedTerritories={this.territory}
           selectedClassifications={this.firstLevelClassifications}
+          selectedType={type}
+          selectedBuffer={this.infraBuffer}
+          categories={this.props.availableInfraLevels}
+          selectedCategories={this.state.infraLevels}
           onClose={this.closeModal.bind(this, 'coverage')}
         />
       );

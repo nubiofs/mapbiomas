@@ -3,12 +3,16 @@ import { MapModal } from './modal';
 import Stats from '../stats/stats';
 
 const StatsModal = ({
+  categories,
   classifications,
   myMapsPage,
   onClose,
   selectedMap,
   selectedClassifications,
   selectedTerritories,
+  selectedType,
+  selectedBuffer,
+  selectedCategories,
   years
 }) => {
   return (
@@ -26,6 +30,10 @@ const StatsModal = ({
           selectedMap={selectedMap}
           selectedClassifications={selectedClassifications}
           selectedTerritories={selectedTerritories}
+          selectedType={selectedType}
+          selectedBuffer={selectedBuffer}
+          categories={categories}
+          selectedCategories={selectedCategories}
           years={years}
         />
       </div>

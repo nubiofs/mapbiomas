@@ -1,6 +1,5 @@
 import React from 'react';
 import _ from 'underscore';
-import { API } from '../../lib/api';
 import Highcharts from 'highcharts';
 import Exporting from 'highcharts/modules/exporting';
 
@@ -35,7 +34,9 @@ export default class Chart extends React.Component {
           name: t.label,
           data: this.props.years.map(y => {
             const d = _.find(this.state.data, { year: y, territory: t.value });
+
             if(d && _.isNumber(d.area)) return d.area;
+
             return null;
           })
         };
@@ -49,7 +50,9 @@ export default class Chart extends React.Component {
               color: c.color,
               data: this.props.years.map(y => {
                 const d = _.find(data, { year: y, id: c.value });
+
                 if(d && _.isNumber(d.area)) return d.area;
+
                 return null;
               })
             };
@@ -81,7 +84,11 @@ export default class Chart extends React.Component {
     if (this.props.selectedMap) {
       title = this.props.selectedMap.name;
     } else {
-      title = this.props.territories.map(t => t.label).join(', ');
+      if (this.props.type.value == 'coverage') {
+        title = this.props.territories.map(t => t.label).join(', ');
+      } else {
+        title = `${_.first(this.props.territories).label} - ${this.props.category.name}`;
+      }
     }
 
     this.setState({ series });
@@ -121,17 +128,32 @@ export default class Chart extends React.Component {
     this.chart.showLoading();
 
     let params = {
-      territory_id: this.props.territories.map(t => t.value).join(','),
-      classification_id: this.props.classifications.map((c) => c.value).join(',')
+      territory_id: this.props.territories.map(t => t.value).join(',')
     };
 
-    if (this.props.myMapsPage) {
-      params = { ...params, grouped: true };
+    if (this.props.type.value == 'coverage') {
+      params = {
+        ...params,
+        classification_id: this.props.classifications.map((c) => c.value).join(',')
+      }
+
+      if (this.props.myMapsPage) {
+        params = { ...params, grouped: true };
+      }
+    } else {
+      params = {
+        ...params,
+        level_id: this.props.category.value,
+        buffer: this.props.buffer.param,
+        classification_ids: this.props.classifications.map((c) => c.value).join(',')
+      }
     }
 
-    this.props.collectionFunction(params).then(data => this.setState({ data }, () => {
-      this.chart.hideLoading();
-    }));
+    this.props.dataFunction(params).then(data =>{
+      this.setState({ data }, () => {
+        this.chart.hideLoading();
+      });
+    });
   }
 
   startDownload() {

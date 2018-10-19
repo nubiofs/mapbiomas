@@ -10,7 +10,7 @@ export default class InfrastructureControl extends Component {
       <HierarchyCategory
         infraLevels={this.props.infraLevels}
         infraBuffer={this.props.infraBuffer}
-        categories={this.props.availableInfraLevels[0]}
+        categories={this.props.availableInfraLevels}
         onChange={this.props.onInfraLevelsChange}
       />
     );

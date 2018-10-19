@@ -19,7 +19,7 @@ class MapPresenter
       availableBaseMaps: base_maps,
       defaultBaseMaps: [],
       availableLayers: layers,
-      availableInfraLevels: infra_levels,
+      availableInfraLevels: infra_levels.flatten,
       infraLayer: infra_layer,
       carLayer: car_layer,
       defaultLayers: [],

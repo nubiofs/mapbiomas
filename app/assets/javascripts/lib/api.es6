@@ -15,6 +15,10 @@ export class API {
     return $.get(Routes.api_collection_2_statistics_path(params));
   }
 
+  static groupedInfraCoverage(params) {
+    return $.get(Routes.api_infra_statistics_path(params));
+  }
+
   static inspector(params) {
     return $.get(Routes.api_inspector_path(params));
   }

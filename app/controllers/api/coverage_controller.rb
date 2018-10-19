@@ -30,7 +30,7 @@ class API::CoverageController < ApplicationController
   end
 
   def infra_coverage_params
-    params.permit(:territory_id, :level_id, :buffer, :year)
+    params.permit(:territory_id, :level_id, :buffer, :classification_ids, :year)
   end
 
   def car_coverage_params

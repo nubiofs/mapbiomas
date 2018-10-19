@@ -3,6 +3,10 @@ pt-BR:
     title: 'Estatísticas'
     subtitle: Selecione nas caixas abaixo os territórios (país, estado, município ou bioma) e as classes para os quais deseja ver a estatística ao longo do período da coleção do MapBiomas.
     searching: 'Procurando...'
+    type:
+      title: Tipo
+      coverage: Cobertura
+      infra_coverage: Cobertura para infraestrutura
     territories:
       title: 'Territórios'
       tooltip: |
@@ -13,6 +17,10 @@ pt-BR:
         <p>Selecione as classes para as quais quer ver os dados históricos. Note que a escala do gráfico está sempre em hectares e se adapta aos dados mostrados.</p>
         <p>As classes são hierárquicas. A classe nível 1 inclui todos os dados do nível 2. Podem ser colocadas múltiplas classes.</p>
         <p>Com o gráfico plotado é possível ligar e desligar classes clicando na legenda abaixo do gráfico.</p>
+    buffer:
+      title: Buffer
+    categories:
+      title: Categorias
     collections:
       title: Coleção
       2: Coleção 2.3

@@ -1,4 +1,5 @@
 <%= react_component('Stats', {
   classifications: TerrasAPI.classifications,
+  categories: TerrasAPI.infra_levels.flatten,
   years: Setting.available_years
 }, { class: 'page' }) %>
