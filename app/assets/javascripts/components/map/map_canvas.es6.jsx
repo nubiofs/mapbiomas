@@ -17,7 +17,7 @@ export class MapCanvas extends React.Component {
     this.mapLayers = {};
     this.sideBySideLayers = {};
     this.dataLayer = null;;
-    this.infraLayer = null;
+    this.infraLayers = {};
     this.carLayer = null;
   }
 
@@ -288,12 +288,53 @@ export class MapCanvas extends React.Component {
     }
   }
 
-  setupInfraLayer() {
+  addInfraLayer(id) {
+    if (this.infraLayers[id]) {
+      return;
+    }
+
+    let params = _.clone(this.props.infraLayerData.params);
+
+    params.layers = `${params.layers}_category_id_${id}`;
+
+    let layer = new L.tileLayer.wms(this.props.infraLayerData.link, params)
+      .on('loading', () => this.map.spin(true))
+      .on('load', () => this.map.spin(false))
+
+    this.map.addLayer(layer);
+    layer.setZIndex(10);
+    this.infraLayers[id] = layer;
+  }
+
+  removeInfraLayer(id) {
+    if (this.infraLayers[id]) {
+      const layer = this.infraLayers[id];
+
+      delete this.infraLayers[id];
+      this.map.removeLayer(layer);
+    }
+  }
+
+  setupInfraLayers() {
     if (!this.props.mainMap) {
       return;
     }
 
-    if (this.infraLayer) {
+    const infraLayersIds = _.reduce(this.props.selectedInfraLevels, (acc, { id }) => (
+      {...acc, [id]: true}
+    ), {});
+
+    _.each(this.props.selectedInfraLevels, (infraLevel) => {
+      this.addInfraLayer(infraLevel.id);
+    });
+
+    _.each(this.infraLayers, (layer, id) => {
+      if (!infraLayersIds[id]) {
+        this.removeInfraLayer(id);
+      }
+    });
+
+    /*if (this.infraLayer) {
       let options = lodash.clone(this.props.infraLayer.params);
 
       let layerFilter = _.map(this.props.selectedInfraLevels, (l) => {
@@ -321,7 +362,7 @@ export class MapCanvas extends React.Component {
 
     if (_.isEmpty(this.props.selectedInfraLevels)) {
       this.infraLayer.setOpacity(0);
-    }
+    }*/
   }
 
   setupCarLayer() {
@@ -411,7 +452,7 @@ export class MapCanvas extends React.Component {
       !_.isEqual(prevProps.selectedInfraLevels, this.props.selectedInfraLevels) ||
       (!_.isEqual(prevProps.selectedInfraBuffer, this.props.selectedInfraBuffer) && !_.isEmpty(this.props.selectedInfraLevels))
     ) {
-      this.setupInfraLayer();
+      this.setupInfraLayers();
     }
 
     if (prevProps.mode != this.props.mode || !_.isEqual(prevProps.showCarLayer, this.props.showCarLayer)) {
@@ -436,7 +477,7 @@ export class MapCanvas extends React.Component {
     this.setupTerritory();
     this.setupMyMapTerritories();
     this.setupDataLayer();
-    this.setupInfraLayer();
+    this.setupInfraLayers();
     this.setupCarLayer();
     this.setupBaseLayers();
     this.setupMapLayers();

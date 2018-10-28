@@ -20,7 +20,7 @@ class MapPresenter
       defaultBaseMaps: [],
       availableLayers: layers,
       availableInfraLevels: infra_levels.flatten,
-      infraLayer: infra_layer,
+      infraLayerData: infra_layer_data,
       carLayer: car_layer,
       defaultLayers: [],
       defaultTerritory: TerrasAPI.territories.first,
@@ -124,11 +124,11 @@ class MapPresenter
     }
   end
 
-  def infra_layer
+  def infra_layer_data
     {
       link: 'http://geoserver.ecostage.com.br/geoserver/mapbiomas/wms',
       params: {
-        layers: 'mapbiomas:infrastructure_map',
+        layers: 'mapbiomas:mapbiomas_infrastructure',
         format: 'image/png',
         transparent: true,
         tiled: true,

@@ -976,7 +976,7 @@ export default class Map extends React.Component {
           opacity={this.state.opacity}
           ref="canvas"
           cards={this.state.cards}
-          infraLayer={this.props.infraLayer}
+          infraLayerData={this.props.infraLayerData}
           showCarLayer={this.state.showCarLayer}
           carLayer={this.props.carLayer}
           baseMaps={this.props.availableBaseMaps}
