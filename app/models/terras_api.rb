@@ -39,17 +39,23 @@ class TerrasAPI
   def self.infra_coverage(territory_id, level_id, buffer, year)
     query_params = { territory_id: territory_id, level_id: level_id, buffer: buffer }
     query_params = query_params.merge(year: year) if year.present?
+    territory_ids = territory_id.split(',')
 
-    cache([
-      __method__.to_s,
-      territory_id,
-      level_id,
-      buffer,
-      year,
-      locale
-    ].join('-')) do
-      get("/dashboard/services/statistics/coverage_infra", query: query_params).parsed_response
+    coverage_data = territory_ids.map do |id|
+      cache([
+        __method__.to_s,
+        id,
+        level_id,
+        buffer,
+        year,
+        locale
+      ].join('-')) do
+        get("/dashboard/services/statistics/coverage_infra", query:
+            query_params.merge(territory_id: id)).parsed_response
+      end
     end
+
+    sum_areas(coverage_data, coverage_keys)
   end
 
   def self.classifications
