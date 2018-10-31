@@ -16,6 +16,10 @@
   &__filter {
     width: 47.5%;
     margin-right: 5%;
+
+    > div:not(:last-child) {
+      margin-bottom: 8px;
+    }
   }
 
   &__filter:last-child {

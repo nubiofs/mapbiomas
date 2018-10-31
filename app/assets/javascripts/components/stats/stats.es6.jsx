@@ -324,6 +324,100 @@ export default class Stats extends React.Component {
     }
   }
 
+  renderTypeSelect() {
+    return (
+      <div>
+        <label className="stats__label">
+          {I18n.t('stats.type.title')}
+        </label>
+
+        <Select
+          name="type-select"
+          value={this.state.selectedType}
+          options={this.typeOptions}
+          onChange={this.onTypeChange.bind(this)}
+          clearable={false}
+        />
+      </div>
+    );
+  }
+
+  renderCategoriesSelect() {
+    if (this.state.selectedType.value == 'infraCoverage') {
+      return (
+        <div>
+          <label className="stats__label">
+            {I18n.t('stats.categories.title')}
+          </label>
+          <Select
+            name="class-select"
+            value={this.state.selectedCategories}
+            options={this.categoriesOptions}
+            onChange={this.onCategoryChange.bind(this)}
+            clearable={false}
+            ignoreAccents={false}
+            noResultsText={false}
+            searchingText={I18n.t('stats.index.searching')}
+            multi={true}
+          />
+        </div>
+      );
+    }
+
+    return null;
+  }
+
+  renderBufferSelect() {
+    if (this.state.selectedType.value == 'infraCoverage') {
+      return (
+        <div>
+          <label className="stats__label">
+            {I18n.t('stats.buffer.title')}
+          </label>
+          <Select
+            name="class-select"
+            value={this.state.selectedBuffer}
+            options={this.bufferOptions}
+            onChange={this.onBufferChange.bind(this)}
+            clearable={false}
+            ignoreAccents={false}
+            noResultsText={false}
+            searchingText={I18n.t('stats.index.searching')}
+            multi={false}
+          />
+        </div>
+      );
+    }
+
+    return null;
+  }
+
+  renderTerritoriesSelect() {
+    return (
+      <div className="stats__filter">
+        <label className="stats__label">
+          {I18n.t('stats.territories.title')}
+          <i id="territories-tooltip"
+            className="material-icons tooltip">
+            &#xE88E;
+          </i>
+        </label>
+
+        <Select.Async
+          name="territory-select"
+          value={this.state.selectedTerritories}
+          loadOptions={this.loadTerritories()}
+          onChange={this.onTerritoryChange.bind(this)}
+          clearable={false}
+          ignoreAccents={false}
+          noResultsText={false}
+          searchingText={I18n.t('stats.index.searching')}
+          multi={true}
+        />
+      </div>
+    );
+  }
+
   renderClassificationsSelect() {
     return (
       <div className="stats__filter">
@@ -349,56 +443,6 @@ export default class Stats extends React.Component {
     );
   }
 
-  renderBufferSelect() {
-    if (this.state.selectedType.value == 'infraCoverage') {
-      return (
-        <div className="stats__filter">
-          <label className="stats__label">
-            {I18n.t('stats.buffer.title')}
-          </label>
-          <Select
-            name="class-select"
-            value={this.state.selectedBuffer}
-            options={this.bufferOptions}
-            onChange={this.onBufferChange.bind(this)}
-            clearable={false}
-            ignoreAccents={false}
-            noResultsText={false}
-            searchingText={I18n.t('stats.index.searching')}
-            multi={false}
-          />
-        </div>
-      );
-    }
-
-    return null;
-  }
-
-  renderCategoriesSelect() {
-    if (this.state.selectedType.value == 'infraCoverage') {
-      return (
-        <div className="stats__filter">
-          <label className="stats__label">
-            {I18n.t('stats.categories.title')}
-          </label>
-          <Select
-            name="class-select"
-            value={this.state.selectedCategories}
-            options={this.categoriesOptions}
-            onChange={this.onCategoryChange.bind(this)}
-            clearable={false}
-            ignoreAccents={false}
-            noResultsText={false}
-            searchingText={I18n.t('stats.index.searching')}
-            multi={true}
-          />
-        </div>
-      );
-    }
-
-    return null;
-  }
-
   render() {
     return (
       <div className="page__container">
@@ -408,43 +452,12 @@ export default class Stats extends React.Component {
         <div className="stats">
           <div className="stats__filter-box">
             <div className="stats__filter">
-              <label className="stats__label">
-                {I18n.t('stats.type.title')}
-              </label>
-
-              <Select
-                name="type-select"
-                value={this.state.selectedType}
-                options={this.typeOptions}
-                onChange={this.onTypeChange.bind(this)}
-                clearable={false}
-              />
+              { this.renderTypeSelect() }
+              { this.renderCategoriesSelect() }
+              { this.renderBufferSelect() }
             </div>
 
-            <div className="stats__filter">
-              <label className="stats__label">
-                {I18n.t('stats.territories.title')}
-                <i id="territories-tooltip"
-                  className="material-icons tooltip">
-                  &#xE88E;
-                </i>
-              </label>
-
-              <Select.Async
-                name="territory-select"
-                value={this.state.selectedTerritories}
-                loadOptions={this.loadTerritories()}
-                onChange={this.onTerritoryChange.bind(this)}
-                clearable={false}
-                ignoreAccents={false}
-                noResultsText={false}
-                searchingText={I18n.t('stats.index.searching')}
-                multi={true}
-              />
-            </div>
-
-            { this.renderBufferSelect() }
-            { this.renderCategoriesSelect() }
+            { this.renderTerritoriesSelect() }
             { this.renderClassificationsSelect() }
           </div>
           <div className="stats__chart-container">
