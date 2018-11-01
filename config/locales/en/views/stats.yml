@@ -2,6 +2,7 @@ en:
   stats:
     title: 'Statistics'
     subtitle: Select in the boxes below the territories (country, state, municipality or biome) and the classes for which you want to see the statistics over the period of the MapBiomas collection.
+    unit: 'Unit: hectares(ha).'
     searching: 'Searching...'
     type:
       title: Type

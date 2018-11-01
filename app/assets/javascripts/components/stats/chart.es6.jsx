@@ -208,7 +208,7 @@ export default class Chart extends React.Component {
                     <td>{serie.name}</td>
                     {_.map(serie.data, (area, j) => {
                       if (_.isNumber(area)) {
-                        return <td key={j}>{formatNumber(area)} ha</td>
+                        return <td key={j}>{formatNumber(area)}</td>
                       } else {
                         return <td key={j}></td>
                       }

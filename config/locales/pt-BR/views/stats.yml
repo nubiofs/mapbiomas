@@ -2,6 +2,7 @@ pt-BR:
   stats:
     title: 'Estatísticas'
     subtitle: Selecione nas caixas abaixo os territórios (país, estado, município ou bioma) e as classes para os quais deseja ver a estatística ao longo do período da coleção do MapBiomas.
+    unit: 'Unidade de medida: hectares (ha).'
     searching: 'Procurando...'
     type:
       title: Tipo

@@ -9,6 +9,10 @@ class Downloads::StatisticsPresenter
     generate_header
   end
 
+  def unit
+    I18n.t('stats.unit')
+  end
+
   def value_rows
     generate_value_rows
   end

@@ -8,11 +8,14 @@ center = workbook.styles.add_style(
 )
 
 workbook.add_worksheet(:name => @download_presenter.worksheet_name) do |sheet|
+  sheet.add_row([@download_presenter.unit], style: center)
+  sheet.merge_cells('A1:B1')
+  sheet.add_row()
   sheet.add_row(@download_presenter.header, style: center)
 
   @download_presenter.value_rows.each do |row|
     sheet.add_row(row, style: center)
   end
 
-  sheet.merge_cells(sheet.cols.first[1..@download_presenter.span])
+  sheet.merge_cells(sheet.cols.first[3..(3 + @download_presenter.span)])
 end

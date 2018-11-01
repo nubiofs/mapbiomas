@@ -250,7 +250,7 @@ export default class Stats extends React.Component {
           dataFunction: this.dataFunction
         };
 
-        if (this.state.selectedType == 'coverage') {
+        if (this.state.selectedType.value == 'coverage') {
           return this.state.selectedTerritories.map((territory, i) =>
             <Chart
               {...options}
@@ -447,7 +447,8 @@ export default class Stats extends React.Component {
     return (
       <div className="page__container">
         <h1 className="page__title">{I18n.t('stats.title')}</h1>
-        {I18n.t('stats.subtitle')}
+        <p>{I18n.t('stats.subtitle')}</p>
+        <p>{I18n.t('stats.unit')}</p>
 
         <div className="stats">
           <div className="stats__filter-box">
