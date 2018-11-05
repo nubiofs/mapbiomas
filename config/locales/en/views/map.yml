@@ -153,6 +153,8 @@ en:
         stats: View statistics for CAR per selected territory (country or state)
       layers:
         title: Layers
+        description: |
+          Click <a target="_blank" href="https://storage.googleapis.com/mapbiomas/assets/Fontes%20-%20Camadas%20de%20Recortes%20Territoriais%20da%20Cole%C3%A7%C3%A3o%203%20-%202018.10.31%20-%20PORT%20%26%20ENG.xlsx">here</a> and see the layers description
         countries: Countries
         states: States
         cities: Cities

@@ -153,6 +153,8 @@ pt-BR:
         stats: Visualizar estatísticas para CAR por recorte territorial (país ou estado)
       layers:
         title: Camadas
+        description: |
+          Clique <a target="_blank" href="https://storage.googleapis.com/mapbiomas/assets/Fontes%20-%20Camadas%20de%20Recortes%20Territoriais%20da%20Cole%C3%A7%C3%A3o%203%20-%202018.10.31%20-%20PORT%20%26%20ENG.xlsx">aqui</a> e veja a descrição das camadas
         countries: Países
         states: Estados
         cities: Municípios

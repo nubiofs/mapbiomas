@@ -85,6 +85,7 @@ class AuxiliarControls extends React.Component {
             <TogglesControl
               className="map-panel__content"
               options={this.props.layers}
+              description={I18n.t('map.index.layers.description')}
               availableOptions={this.props.availableLayers}
               onChange={this.props.handleLayersChange}
             />
