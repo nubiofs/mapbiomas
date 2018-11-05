@@ -38,6 +38,15 @@ class TogglesControl extends React.Component {
 
     return (
       <div className={this.props.className}>
+        { this.props.description && (
+          <label
+            className="auxiliar-controls__description"
+            dangerouslySetInnerHTML={{
+              __html: this.props.description
+            }}>
+          </label>
+        )}
+
         <ul className="toggles-list">
           {options}
         </ul>

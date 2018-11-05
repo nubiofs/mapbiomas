@@ -78,19 +78,8 @@ pt-BR:
         select_all: Selecionar todas as classes
       base_maps:
         title: Imagem de fundo
-        tooltip: |
-          <p>Fonte dos mapas de fundo:</p>
-          <ul>
-            <li><b>Imagem - ESRI:</b>
-              <a target="_blank" href="http://leaflet-extras.github.io/leaflet-providers/preview/#filter=Esri.WorldImagery">http://leaflet-extras.github.io/leaflet-providers/preview/#filter=Esri.WorldImagery</a>
-            </li>
-            <li><b>Estradas - Open Street Map:</b>
-              <a target="_blank" href="http://leaflet-extras.github.io/leaflet-providers/preview/#filter=OpenStreetMap.Mapnik">http://leaflet-extras.github.io/leaflet-providers/preview/#filter=OpenStreetMap.Mapnik</a>
-            </li>
-            <li><b>Relevo - ESRI:</b>
-              <a target="_blank" href="http://leaflet-extras.github.io/leaflet-providers/preview/#filter=Esri.WorldShadedRelief">http://leaflet-extras.github.io/leaflet-providers/preview/#filter=Esri.WorldShadedRelief</a>
-            </li>
-          </ul>
+        description: |
+          Clique <a target="_blank" href="https://storage.googleapis.com/mapbiomas/assets/Fontes%20-%20Imagens%20de%20Fundo%20-%202018.10.31.xlsx">aqui</a> e veja a fonte dos mapas de fundo
         coverage_data: Mapas de Cobertura e Uso da Terra
         afro_brazilian_settlements: Quilombolas
         smallholder_settlements: Assentamentos

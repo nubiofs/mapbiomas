@@ -13,15 +13,6 @@ import QualityLabels from '../panels/quality/labels';
 import Scrollable from 'lib/scrollable';
 
 class AuxiliarControls extends React.Component {
-  componentDidMount() {
-    $('#base-maps-tooltip').tooltipster({
-      theme: 'tooltip-custom-theme',
-      interactive: true,
-      contentAsHTML: true,
-      content: $(I18n.t('map.index.base_maps.tooltip'))
-    });
-  }
-
   get baseMapsOptions() {
     return _.filter(this.props.availableBaseMaps, (m) => !m.data);
   }
@@ -66,23 +57,14 @@ class AuxiliarControls extends React.Component {
 
   render() {
     return (
-      <div className="map-panel__grow map-panel-can-hide" id="auxiliar-controls">
+      <div className="map-panel__grow map-panel-can-hide auxiliar-controls" id="auxiliar-controls">
         <Tabs
             className="map-panel__action-panel map-panel__tab-panel"
             selectedIndex={this.props.viewOptionsIndex}
             onSelect={this.props.handleViewOptionsIndexSelect}>
           <TabList>
             <Tab>{this.firstTabTitle}</Tab>
-            <Tab>
-              <div>
-                {I18n.t('map.index.base_maps.title')}
-
-                <i id="base-maps-tooltip"
-                  className="material-icons tooltip">
-                  &#xE88E;
-                </i>
-              </div>
-            </Tab>
+            <Tab>{I18n.t('map.index.base_maps.title')}</Tab>
             <Tab>{I18n.t('map.index.layers.title')}</Tab>
             <Tab>{I18n.t('map.index.infra_levels.title')}</Tab>
             <Tab>{I18n.t('map.index.car.title')}</Tab>
@@ -94,6 +76,7 @@ class AuxiliarControls extends React.Component {
             <TogglesControl
               className="map-panel__content"
               options={this.props.baseMaps}
+              description={I18n.t('map.index.base_maps.description')}
               availableOptions={this.baseMapsOptions}
               onChange={this.props.handleBaseMapsChange}
             />
