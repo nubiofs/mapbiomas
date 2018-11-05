@@ -46,6 +46,21 @@
         </div>
         <strong><%= link_to 'Mapas de referência', page_path('database/reference_maps') %></strong>
       </div>
+
+      <div class="downloads__reference_maps">
+        <div class="downloads__icon">
+          <%= link_to (image_tag "icon-infograficos.png"), page_path('infographics') %>
+        </div>
+        <strong><%= link_to 'Infográficos', page_path('infographics') %></strong>
+      </div>
+
+      <div class="downloads__reference_maps">
+        <div class="downloads__icon">
+          <%= link_to (image_tag "icon-infra-data.png"), page_path('infra-data') %>
+        </div>
+        <strong><%= link_to 'Dados de infraestrutura', page_path('infra-data') %></strong>
+      </div>
+
     </div>
   </div>
 </article>
