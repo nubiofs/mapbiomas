@@ -39,6 +39,10 @@
 .stats-table {
   overflow-x: auto;
 
+  &__value {
+    text-align: right;
+  }
+
   table {
     width: 100%;
   }
