@@ -39,6 +39,13 @@ export default class InfrastructureControl extends Component {
       <div className={`${this.props.className} infra-levels`} style={{display: 'flex', height: "100%"}}>
         <Scrollable calcMaxHeight={this.props.calcMaxHeight}>
           <div className="infra-levels__options">
+            <label
+              className="auxiliar-controls__description"
+              dangerouslySetInnerHTML={{
+                __html: I18n.t('map.index.infra_levels.description')
+              }}>
+            </label>
+
             {this.renderStatsToggle()}
 
             <div>

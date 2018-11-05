@@ -138,6 +138,8 @@ en:
         title: Territories
       infra_levels:
         title: Infrastructure
+        description: |
+          Click <a target="_blank" href="https://storage.googleapis.com/mapbiomas/assets/Fontes%20-%20Camadas%20de%20Infraestrutura%202018.07.16%20-%20PORT%20%26%20ENG.xlsx">here</a> and see the infrastructure layers description
         buffer:
           title: Buffer
           none: None
