@@ -78,19 +78,8 @@ pt-BR:
         select_all: Selecionar todas as classes
       base_maps:
         title: Imagem de fundo
-        tooltip: |
-          <p>Fonte dos mapas de fundo:</p>
-          <ul>
-            <li><b>Imagem - ESRI:</b>
-              <a target="_blank" href="http://leaflet-extras.github.io/leaflet-providers/preview/#filter=Esri.WorldImagery">http://leaflet-extras.github.io/leaflet-providers/preview/#filter=Esri.WorldImagery</a>
-            </li>
-            <li><b>Estradas - Open Street Map:</b>
-              <a target="_blank" href="http://leaflet-extras.github.io/leaflet-providers/preview/#filter=OpenStreetMap.Mapnik">http://leaflet-extras.github.io/leaflet-providers/preview/#filter=OpenStreetMap.Mapnik</a>
-            </li>
-            <li><b>Relevo - ESRI:</b>
-              <a target="_blank" href="http://leaflet-extras.github.io/leaflet-providers/preview/#filter=Esri.WorldShadedRelief">http://leaflet-extras.github.io/leaflet-providers/preview/#filter=Esri.WorldShadedRelief</a>
-            </li>
-          </ul>
+        description: |
+          Clique <a target="_blank" href="https://storage.googleapis.com/mapbiomas/assets/Fontes%20-%20Imagens%20de%20Fundo%20-%202018.10.31.xlsx">aqui</a> e veja a fonte dos mapas de fundo
         coverage_data: Mapas de Cobertura e Uso da Terra
         afro_brazilian_settlements: Quilombolas
         smallholder_settlements: Assentamentos
@@ -149,6 +138,8 @@ pt-BR:
         title: Territórios
       infra_levels:
         title: Infraestrutura
+        description: |
+          Clique <a target="_blank" href="https://storage.googleapis.com/mapbiomas/assets/Fontes%20-%20Camadas%20de%20Infraestrutura%202018.07.16%20-%20PORT%20%26%20ENG.xlsx">aqui</a> e veja a descrição das camadas de infraestrutura
         buffer:
           title: Buffer
           none: Nenhum
@@ -164,6 +155,8 @@ pt-BR:
         stats: Visualizar estatísticas para CAR por recorte territorial (país ou estado)
       layers:
         title: Camadas
+        description: |
+          Clique <a target="_blank" href="https://storage.googleapis.com/mapbiomas/assets/Fontes%20-%20Camadas%20de%20Recortes%20Territoriais%20da%20Cole%C3%A7%C3%A3o%203%20-%202018.10.31%20-%20PORT%20%26%20ENG.xlsx">aqui</a> e veja a descrição das camadas
         countries: Países
         states: Estados
         cities: Municípios

@@ -78,19 +78,8 @@ en:
         select_all: Select all classifications
       base_maps:
         title: Images
-        tooltip: |
-          <p>Source of background maps:</p>
-          <ul>
-            <li><b>Image - ESRI:</b>
-              <a target="_blank" href="http://leaflet-extras.github.io/leaflet-providers/preview/#filter=Esri.WorldImagery">http://leaflet-extras.github.io/leaflet-providers/preview/#filter=Esri.WorldImagery</a>
-            </li>
-            <li><b>Roads - Open Street Map:</b>
-              <a target="_blank" href="http://leaflet-extras.github.io/leaflet-providers/preview/#filter=OpenStreetMap.Mapnik">http://leaflet-extras.github.io/leaflet-providers/preview/#filter=OpenStreetMap.Mapnik</a>
-            </li>
-            <li><b>Relief - ESRI:</b>
-              <a target="_blank" href="http://leaflet-extras.github.io/leaflet-providers/preview/#filter=Esri.WorldShadedRelief">http://leaflet-extras.github.io/leaflet-providers/preview/#filter=Esri.WorldShadedRelief</a>
-            </li>
-          </ul>
+        description: |
+          Click <a target="_blank" href="https://storage.googleapis.com/mapbiomas/assets/Fontes%20-%20Imagens%20de%20Fundo%20-%202018.10.31.xlsx">here</a> and see the source of background maps
         coverage_data: Land Use and Cover Mapping
         afro_brazilian_settlements: Afro-Brazilian settlements
         smallholder_settlements: Smallholder settlements
@@ -149,6 +138,8 @@ en:
         title: Territories
       infra_levels:
         title: Infrastructure
+        description: |
+          Click <a target="_blank" href="https://storage.googleapis.com/mapbiomas/assets/Fontes%20-%20Camadas%20de%20Infraestrutura%202018.07.16%20-%20PORT%20%26%20ENG.xlsx">here</a> and see the infrastructure layers description
         buffer:
           title: Buffer
           none: None
@@ -164,6 +155,8 @@ en:
         stats: View statistics for CAR per selected territory (country or state)
       layers:
         title: Layers
+        description: |
+          Click <a target="_blank" href="https://storage.googleapis.com/mapbiomas/assets/Fontes%20-%20Camadas%20de%20Recortes%20Territoriais%20da%20Cole%C3%A7%C3%A3o%203%20-%202018.10.31%20-%20PORT%20%26%20ENG.xlsx">here</a> and see the layers description
         countries: Countries
         states: States
         cities: Cities

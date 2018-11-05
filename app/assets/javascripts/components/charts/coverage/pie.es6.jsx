@@ -19,7 +19,9 @@ export default class CoveragePieChart extends Component {
   }
 
   get chartSeries() {
-    let data = this.state.coverage.map((coverageItem) => {
+    let coverageData = _.reject(this.state.coverage, (c) => c.id == 28);
+
+    let data = coverageData.map((coverageItem) => {
       let classification = this.findCoverageClassification(coverageItem);
       let y = parseFloat(coverageItem.area);
 
