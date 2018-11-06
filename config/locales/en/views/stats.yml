@@ -8,6 +8,7 @@ en:
       title: Type
       coverage: Coverage
       infra_coverage: Infrastructure coverage
+      car_coverage: CAR coverage
     territories:
       title: 'Territories'
       tooltip: |

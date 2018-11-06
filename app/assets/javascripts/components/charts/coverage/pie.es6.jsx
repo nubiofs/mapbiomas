@@ -8,7 +8,6 @@ const INFRA_BUFFER_OPTIONS = {
   '10k': 10000,
   '20k': 20000
 }
-const INFRA_MENU_OPTION = 3;
 
 export default class CoveragePieChart extends Component {
   constructor(props) {
@@ -84,7 +83,7 @@ export default class CoveragePieChart extends Component {
       territoryId = props.territory.id
     }
 
-    if (this.props.viewOptionsIndex == INFRA_MENU_OPTION && props.showInfraStats) {
+    if (props.coverageMode.value == 'infraCoverage') {
       let levelId = props.infraLevels.map((t) => t.id).join(',');
 
       promise = API.infraCoverage({
@@ -93,7 +92,7 @@ export default class CoveragePieChart extends Component {
         buffer: INFRA_BUFFER_OPTIONS[props.infraBuffer.value],
         year: props.year
       });
-    } else if (props.showCarStats) {
+    } else if (props.coverageMode.value == 'carCoverage') {
       promise = API.carCoverage({
         territory_id: territoryId,
         year: props.year
@@ -123,9 +122,9 @@ export default class CoveragePieChart extends Component {
     if (
       !_.isEqual(this.props.year, nextProps.year) ||
       !_.isEqual(this.props.territory, nextProps.territory) ||
-      (this.props.showInfraStats && !nextProps.showInfraStats) ||
-      (nextProps.showInfraStats && !_.isEmpty(nextProps.infraLevels) && nextProps.infraBuffer.value != 'none') ||
-      (this.props.showCarStats != nextProps.showCarStats)
+      (this.props.coverageMode.value == 'infraCoverage' && !nextProps.coverageMode.value != 'infraCoverage') ||
+      (nextProps.coverageMode.value == 'infraCoverage' && !_.isEmpty(nextProps.infraLevels) && nextProps.infraBuffer.value != 'none') ||
+      (this.props.coverageMode.value == 'carCoverage' != nextProps.coverageMode.value != 'carCoverage')
     ) {
       this.loadCoverage(nextProps)
     }

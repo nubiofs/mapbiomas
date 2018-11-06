@@ -124,7 +124,8 @@ export default class Stats extends React.Component {
   get typeOptions() {
     return [
       { value: 'coverage', label: I18n.t('stats.type.coverage') },
-      { value: 'infraCoverage', label: I18n.t('stats.type.infra_coverage') }
+      { value: 'infraCoverage', label: I18n.t('stats.type.infra_coverage') },
+      { value: 'carCoverage', label: I18n.t('stats.type.car_coverage') }
     ]
   }
 
