@@ -205,7 +205,7 @@ export class MenuControl extends React.Component {
                 </a>
               </li>
               <li className="menu__item">
-                <a className="menu__link" href={Routes.page_path('release_collection2')}>
+                <a className="menu__link" href={Routes.page_path('release_collection')}>
                   {I18n.t('layouts.header.communication.release_collection2')}
                 </a>
               </li>
