@@ -77,7 +77,6 @@ export default class CoverageMenu extends React.Component {
         infraLevels={this.props.infraLevels}
         infraBuffer={this.props.infraBuffer}
         year={this.props.year}
-        viewOptionsIndex={this.props.viewOptionsIndex}
       />
     );
   }
@@ -97,7 +96,6 @@ export default class CoverageMenu extends React.Component {
         infraLevels={this.props.infraLevels}
         infraBuffer={this.props.infraBuffer}
         year={this.props.year}
-        viewOptionsIndex={this.props.viewOptionsIndex}
       />
     );
   }

@@ -128,7 +128,7 @@ class CoverageLineChart extends Component {
       !_.isEqual(this.props.territory, nextProps.territory) ||
       (this.props.coverageMode.value == 'infraCoverage' && !nextProps.coverageMode.value != 'infraCoverage') ||
       (nextProps.coverageMode.value == 'infraCoverage' && !_.isEmpty(nextProps.infraLevels) && nextProps.infraBuffer.value != 'none') ||
-      (this.props.coverageMode.value == 'carCoverage' != nextProps.coverageMode.value != 'carCoverage')
+      (this.props.coverageMode.value == 'carCoverage' && nextProps.coverageMode.value != 'carCoverage')
     ) {
       this.loadCoverage(nextProps)
     }

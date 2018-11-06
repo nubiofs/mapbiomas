@@ -58,10 +58,7 @@ class AuxiliarControls extends React.Component {
   render() {
     return (
       <div className="map-panel__grow map-panel-can-hide auxiliar-controls" id="auxiliar-controls">
-        <Tabs
-            className="map-panel__action-panel map-panel__tab-panel"
-            selectedIndex={this.props.viewOptionsIndex}
-            onSelect={this.props.handleViewOptionsIndexSelect}>
+        <Tabs className="map-panel__action-panel map-panel__tab-panel">
           <TabList>
             <Tab>{this.firstTabTitle}</Tab>
             <Tab>{I18n.t('map.index.base_maps.title')}</Tab>

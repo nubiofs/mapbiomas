@@ -70,7 +70,6 @@ export default class Map extends React.Component {
       transitions: [],
       transitionsLayers: [0, 1, 2, 3, 4, 5],
       transitionsPeriod: '',
-      viewOptionsIndex: 0,
       year: null,
       years: []
     };
@@ -530,10 +529,6 @@ export default class Map extends React.Component {
 
   handleMainMenuIndexSelect(index) {
     this.setState({ mainMenuIndex: index });
-  }
-
-  handleViewOptionsIndexSelect(viewOptionsIndex) {
-    this.setState({ viewOptionsIndex });
   }
 
   handleTransitionsPeriodChange(period) {
@@ -1103,7 +1098,6 @@ export default class Map extends React.Component {
                 infraBufferOptions={this.infraBufferOptions}
                 availableInfraLevels={this.props.availableInfraLevels}
                 transition={this.state.transition}
-                viewOptionsIndex={this.state.viewOptionsIndex}
                 handleClassificationsChange={this.handleClassificationsChange.bind(this)}
                 handleTransitionsLayersChange={this.handleTransitionsLayersChange.bind(this)}
                 handleBaseMapsChange={this.handleBaseMapsChange.bind(this)}
@@ -1111,7 +1105,6 @@ export default class Map extends React.Component {
                 handleInfraLevelsChange={this.handleInfraLevelsChange.bind(this)}
                 handleInfraBufferChange={this.handleInfraBufferChange.bind(this)}
                 handleCarLayerChange={this.handleCarLayerChange.bind(this)}
-                handleViewOptionsIndexSelect={this.handleViewOptionsIndexSelect.bind(this)}
                 handleTransitionReset={this.handleTransitionReset.bind(this)}
               />
             )}
@@ -1151,7 +1144,6 @@ export default class Map extends React.Component {
                     infraLevels={this.state.infraLevels}
                     infraBuffer={this.infraBuffer}
                     classifications={this.classifications}
-                    viewOptionsIndex={this.state.viewOptionsIndex}
                     onExpandModal={this.expandModal.bind(this, 'coverage')}
                     onCoverageModeChange={this.handleCoverageModeChange.bind(this)}
                   />
