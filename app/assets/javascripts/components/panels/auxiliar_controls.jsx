@@ -94,7 +94,6 @@ class AuxiliarControls extends React.Component {
             <InfrastructureControl
               className="map-panel__content"
               mode={this.props.mode}
-              showInfraStats={this.props.showInfraStats}
               infraLevels={this.props.infraLevels}
               infraBuffer={this.props.infraBuffer}
               infraBufferOptions={this.props.infraBufferOptions}
@@ -104,7 +103,6 @@ class AuxiliarControls extends React.Component {
               )}
               onInfraLevelsChange={this.props.handleInfraLevelsChange}
               onInfraBufferChange={this.props.handleInfraBufferChange}
-              onInfraStatsChange={this.props.handleInfraStatsChange}
             />
           </TabPanel>
           <TabPanel>
@@ -114,9 +112,7 @@ class AuxiliarControls extends React.Component {
               <CarControl
                 mode={this.props.mode}
                 showCarLayer={this.props.showCarLayer}
-                showCarStats={this.props.showCarStats}
                 onCarLayerChange={this.props.handleCarLayerChange}
-                onCarStatsChange={this.props.handleCarStatsChange}
               />
           </Scrollable>
           </TabPanel>
