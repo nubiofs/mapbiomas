@@ -144,11 +144,9 @@
 
 .home {
   &__video {
-    height: 90vh;
     position: relative;
     background-color: rgba(black, 0.3);
     overflow: hidden;
-    min-height: 600px;
     @media (max-width: 767px) {
       height: auto;
     }

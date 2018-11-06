@@ -25,6 +25,7 @@ Rails.application.routes.draw do
       as: :download_statistics, defaults: { format: :xlsx }
 
   get '/stats', to: 'stats#show', as: :stats
+  get '/premio', to: 'premio#show', as: :premio
 
   namespace :api, defaults: { format: :json } do
     resources :classifications, only: :index
