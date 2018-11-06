@@ -16,24 +16,6 @@ export default class InfrastructureControl extends Component {
     );
   }
 
-  renderStatsToggle() {
-    if (this.props.mode == 'coverage') {
-      return (
-        <div className="toggles-list">
-          <div className="toggle">
-            <label>{I18n.t('map.index.infra_levels.statistics')}</label>
-            <Toggle
-              className='custom-toggle'
-              defaultChecked={this.props.showInfraStats}
-              icons={false}
-              onChange={this.props.onInfraStatsChange}
-            />
-          </div>
-        </div>
-      );
-    }
-  }
-
   render() {
     return (
       <div className={`${this.props.className} infra-levels`} style={{display: 'flex', height: "100%"}}>
@@ -45,8 +27,6 @@ export default class InfrastructureControl extends Component {
                 __html: I18n.t('map.index.infra_levels.description')
               }}>
             </label>
-
-            {this.renderStatsToggle()}
 
             <div>
               <label>{I18n.t('map.index.infra_levels.buffer.title')}</label>

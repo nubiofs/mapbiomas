@@ -58,10 +58,7 @@ class AuxiliarControls extends React.Component {
   render() {
     return (
       <div className="map-panel__grow map-panel-can-hide auxiliar-controls" id="auxiliar-controls">
-        <Tabs
-            className="map-panel__action-panel map-panel__tab-panel"
-            selectedIndex={this.props.viewOptionsIndex}
-            onSelect={this.props.handleViewOptionsIndexSelect}>
+        <Tabs className="map-panel__action-panel map-panel__tab-panel">
           <TabList>
             <Tab>{this.firstTabTitle}</Tab>
             <Tab>{I18n.t('map.index.base_maps.title')}</Tab>
@@ -94,7 +91,6 @@ class AuxiliarControls extends React.Component {
             <InfrastructureControl
               className="map-panel__content"
               mode={this.props.mode}
-              showInfraStats={this.props.showInfraStats}
               infraLevels={this.props.infraLevels}
               infraBuffer={this.props.infraBuffer}
               infraBufferOptions={this.props.infraBufferOptions}
@@ -104,7 +100,6 @@ class AuxiliarControls extends React.Component {
               )}
               onInfraLevelsChange={this.props.handleInfraLevelsChange}
               onInfraBufferChange={this.props.handleInfraBufferChange}
-              onInfraStatsChange={this.props.handleInfraStatsChange}
             />
           </TabPanel>
           <TabPanel>
@@ -114,9 +109,7 @@ class AuxiliarControls extends React.Component {
               <CarControl
                 mode={this.props.mode}
                 showCarLayer={this.props.showCarLayer}
-                showCarStats={this.props.showCarStats}
                 onCarLayerChange={this.props.handleCarLayerChange}
-                onCarStatsChange={this.props.handleCarStatsChange}
               />
           </Scrollable>
           </TabPanel>

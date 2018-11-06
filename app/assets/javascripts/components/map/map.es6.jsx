@@ -42,10 +42,10 @@ export default class Map extends React.Component {
       infraBuffer: null,
       showCarLayer: false,
       showCartStats: false,
-      showInfraStats: false,
       hide: false,
       pointClick: false,
       layers: null,
+      coverageMode: _.first(this.coverageModes),
       mode: location.hash.replace('#', '') || 'coverage',
       myMaps: null,
       myMapTerritories: null,
@@ -70,13 +70,21 @@ export default class Map extends React.Component {
       transitions: [],
       transitionsLayers: [0, 1, 2, 3, 4, 5],
       transitionsPeriod: '',
-      viewOptionsIndex: 0,
       year: null,
       years: []
     };
   }
 
   //Props
+
+  get coverageModes() {
+    return [
+      { value: 'coverage', label: I18n.t('stats.type.coverage') },
+      { value: 'infraCoverage', label: I18n.t('stats.type.infra_coverage') },
+      { value: 'carCoverage', label: I18n.t('stats.type.car_coverage') }
+    ];
+  }
+
   get territoryCategories() {
     return [
       { id: 'country', value: 'País', label: I18n.t('map.index.category.countries.many'), preloaded: true },
@@ -398,6 +406,10 @@ export default class Map extends React.Component {
     }
   }
 
+  handleCoverageModeChange(coverageMode) {
+    this.setState({ coverageMode });
+  }
+
   handleModeChange(mode) {
     this.setState({ mode });
 
@@ -489,14 +501,6 @@ export default class Map extends React.Component {
     this.setState({ showCarLayer: !this.state.showCarLayer });
   }
 
-  handleCarStatsChange() {
-    this.setState({ showCarStats: !this.state.showCarStats });
-  }
-
-  handleInfraStatsChange() {
-    this.setState({ showInfraStats: !this.state.showInfraStats });
-  }
-
   handleTransitionChange(transition) {
     this.setState({
       transition: transition,
@@ -525,10 +529,6 @@ export default class Map extends React.Component {
 
   handleMainMenuIndexSelect(index) {
     this.setState({ mainMenuIndex: index });
-  }
-
-  handleViewOptionsIndexSelect(viewOptionsIndex) {
-    this.setState({ viewOptionsIndex });
   }
 
   handleTransitionsPeriodChange(period) {
@@ -831,18 +831,15 @@ export default class Map extends React.Component {
 
   renderStatsModal() {
     if(this.state.showModals.coverage) {
-      let type = this.state.showInfraStats ? 'infraCoverage' : 'coverage';
-
       return (
         <StatsModal
-          type={type}
           myMapsPage={this.props.myMapsPage}
           classifications={this.props.defaultClassifications}
           years={this.props.availableYears}
           selectedMap={this.state.selectedMap}
           selectedTerritories={this.territory}
           selectedClassifications={this.firstLevelClassifications}
-          selectedType={type}
+          selectedType={this.state.coverageMode.value}
           selectedBuffer={this.infraBuffer}
           categories={this.props.availableInfraLevels}
           selectedCategories={this.state.infraLevels}
@@ -1090,8 +1087,6 @@ export default class Map extends React.Component {
                 classifications={this.classifications}
                 defaultClassificationsTree={this.defaultClassificationsTree}
                 showCarLayer={this.state.showCarLayer}
-                showInfraStats={this.state.showInfraStats}
-                showCarStats={this.state.showCarStats}
                 availableTransitionsLayers={this.initialState.transitionsLayers}
                 transitionsLayers={this.transitionsLayers}
                 availableBaseMaps={this.props.availableBaseMaps}
@@ -1103,17 +1098,13 @@ export default class Map extends React.Component {
                 infraBufferOptions={this.infraBufferOptions}
                 availableInfraLevels={this.props.availableInfraLevels}
                 transition={this.state.transition}
-                viewOptionsIndex={this.state.viewOptionsIndex}
                 handleClassificationsChange={this.handleClassificationsChange.bind(this)}
                 handleTransitionsLayersChange={this.handleTransitionsLayersChange.bind(this)}
                 handleBaseMapsChange={this.handleBaseMapsChange.bind(this)}
                 handleLayersChange={this.handleLayersChange.bind(this)}
                 handleInfraLevelsChange={this.handleInfraLevelsChange.bind(this)}
                 handleInfraBufferChange={this.handleInfraBufferChange.bind(this)}
-                handleInfraStatsChange={this.handleInfraStatsChange.bind(this)}
                 handleCarLayerChange={this.handleCarLayerChange.bind(this)}
-                handleCarStatsChange={this.handleCarStatsChange.bind(this)}
-                handleViewOptionsIndexSelect={this.handleViewOptionsIndexSelect.bind(this)}
                 handleTransitionReset={this.handleTransitionReset.bind(this)}
               />
             )}
@@ -1145,16 +1136,16 @@ export default class Map extends React.Component {
                   <CoverageMenu
                     {...this.props}
                     myMapsPage={this.props.myMapsPage}
+                    coverageMode={this.state.coverageMode}
+                    coverageModes={this.coverageModes}
                     territory={this.territory}
                     map={this.state.selectedMap}
                     year={this.year}
                     infraLevels={this.state.infraLevels}
                     infraBuffer={this.infraBuffer}
                     classifications={this.classifications}
-                    showInfraStats={this.state.showInfraStats}
-                    showCarStats={this.state.showCarStats}
-                    viewOptionsIndex={this.state.viewOptionsIndex}
                     onExpandModal={this.expandModal.bind(this, 'coverage')}
+                    onCoverageModeChange={this.handleCoverageModeChange.bind(this)}
                   />
                 )}
                 transitionsPanel={(

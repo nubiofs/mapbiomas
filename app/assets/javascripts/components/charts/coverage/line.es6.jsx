@@ -8,7 +8,6 @@ const INFRA_BUFFER_OPTIONS = {
   '10k': 10000,
   '20k': 20000
 }
-const INFRA_MENU_OPTION = 3;
 
 const parseArea = (area) => {
   let y = parseFloat(area);
@@ -91,7 +90,7 @@ class CoverageLineChart extends Component {
       territoryId = props.territory.id
     }
 
-    if (this.props.viewOptionsIndex == INFRA_MENU_OPTION && props.showInfraStats) {
+    if (props.coverageMode.value == 'infraCoverage') {
       let levelId = props.infraLevels.map((t) => t.id).join(',');
 
       promise = API.infraCoverage({
@@ -99,7 +98,7 @@ class CoverageLineChart extends Component {
         level_id: levelId,
         buffer: INFRA_BUFFER_OPTIONS[props.infraBuffer.value]
       });
-    } else if (props.showCarStats) {
+    } else if (props.coverageMode.value == 'carCoverage') {
       promise = API.carCoverage({
         territory_id: territoryId
       });
@@ -127,9 +126,9 @@ class CoverageLineChart extends Component {
     if (
       !_.isEqual(this.props.year, nextProps.year) ||
       !_.isEqual(this.props.territory, nextProps.territory) ||
-      (this.props.showInfraStats && !nextProps.showInfraStats) ||
-      (nextProps.showInfraStats && !_.isEmpty(nextProps.infraLevels) && nextProps.infraBuffer.value != 'none') ||
-      (this.props.showCarStats != nextProps.showCarStats)
+      (this.props.coverageMode.value == 'infraCoverage' && !nextProps.coverageMode.value != 'infraCoverage') ||
+      (nextProps.coverageMode.value == 'infraCoverage' && !_.isEmpty(nextProps.infraLevels) && nextProps.infraBuffer.value != 'none') ||
+      (this.props.coverageMode.value == 'carCoverage' && nextProps.coverageMode.value != 'carCoverage')
     ) {
       this.loadCoverage(nextProps)
     }

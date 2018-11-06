@@ -8,6 +8,7 @@ pt-BR:
       title: Tipo
       coverage: Cobertura
       infra_coverage: Cobertura para infraestrutura
+      car_coverage: Cobertura para CAR
     territories:
       title: 'Territórios'
       tooltip: |
