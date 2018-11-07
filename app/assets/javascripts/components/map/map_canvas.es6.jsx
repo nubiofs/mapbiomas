@@ -260,7 +260,7 @@ export class MapCanvas extends React.Component {
       options.year = this.props.year;
     }
 
-    if (this.props.mode == 'coverage' && this.props.selectedInfraBuffer.value != 'none' && !_.isEmpty(this.props.selectedInfraLevels)) {
+    if (this.props.mainMap && this.props.mode == 'coverage' && this.props.selectedInfraBuffer.value != 'none' && !_.isEmpty(this.props.selectedInfraLevels)) {
       options = {
         ...options,
         territory_id: _.map(this.territoryArray, (t) => t.value),

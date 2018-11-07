@@ -18,7 +18,7 @@ export default class TerritoryControl extends Component {
 
     return (
       <div className="territories-control">
-        <div className="map-panel__action-panel map-panel__content">
+        <div className="map-panel__action-panel map-panel-can-hide map-panel__content">
           <div className="category-select">
             <label>{I18n.t('map.index.category.title')}</label>
             <Select
