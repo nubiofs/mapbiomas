@@ -200,6 +200,11 @@ export class MenuControl extends React.Component {
             </a>
             <ul className="submenu__items">
               <li className="menu__item">
+                <a className="menu__link" href='/premio'>
+                  Prêmio MapBiomas
+                </a>
+              </li>
+              <li className="menu__item">
                 <a className="menu__link" href={Routes.page_path('announcement_note_collection2_3')}>
                   {I18n.t('layouts.header.communication.news')}
                 </a>
