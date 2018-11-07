@@ -148,6 +148,13 @@
     background-color: rgba(black, 0.3);
     overflow: hidden;
 
+    .carousel_img {
+      opacity: 0;
+      @media (max-width: 767px) {
+        display: none;
+      }
+    }
+
     img {
       width: 100%;
     }
