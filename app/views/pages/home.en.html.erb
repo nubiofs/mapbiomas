@@ -11,11 +11,23 @@ $(function() {
       $(theModal + ' iframe').attr('src', videoSRC);
     });
   });
+
+  $('.carousel').slick({
+    slidesToShow: 1,
+    autoplay: true,
+    autoplaySpeed: 6000,
+    fade: true,
+    dots: true,
+    arrows: true,
+  });
 });
 </script>
 
 <section class="home__video">
-  <a href="/premio"><%= image_tag "carousel-mapbiomas.png" %></a>
+  <div class="carousel">
+    <div><a href="/premio"><%= image_tag "carousel-mapbiomas.png" %></a></div>
+    <div><a href="#"><%= image_tag "carousel-home.png" %></a></div>
+  </div>
 </section>
 
 <div class="modal-video fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

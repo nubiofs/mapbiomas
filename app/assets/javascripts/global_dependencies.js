@@ -4,3 +4,4 @@
 //= require react_ujs
 //= require i18n.js
 //= require i18n/translations
+//= require slick-carousel
