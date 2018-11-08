@@ -199,16 +199,20 @@ export class MenuControl extends React.Component {
               {I18n.t('layouts.header.communication.title')}
             </a>
             <ul className="submenu__items">
-              <li className="menu__item">
-                <a className="menu__link" href='/premio'>
-                  Prêmio MapBiomas
-                </a>
-              </li>
-              <li className="menu__item">
-                <a className="menu__link" href={Routes.page_path('announcement_note_collection2_3')}>
-                  {I18n.t('layouts.header.communication.news')}
-                </a>
-              </li>
+              { I18n.locale != 'en' && (
+                <li className="menu__item">
+                  <a className="menu__link" href='/premio'>
+                    Prêmio MapBiomas
+                  </a>
+                </li>
+              )}
+              { I18n.locale != 'en' && (
+                <li className="menu__item">
+                  <a className="menu__link" href={Routes.page_path('announcement_note_collection2_3')}>
+                    {I18n.t('layouts.header.communication.news')}
+                  </a>
+                </li>
+              )}
               <li className="menu__item">
                 <a className="menu__link" href={Routes.page_path('release_collection')}>
                   {I18n.t('layouts.header.communication.release_collection2')}
